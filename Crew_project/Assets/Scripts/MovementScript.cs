@@ -26,7 +26,8 @@ public class MovementScript : MonoBehaviour
         moveinput = Input.GetAxisRaw("Horizontal");
         
     
-        animator.SetFloat("ismoving", Mathf.Abs(moveinput));
+        if(Mathf.Abs(moveinput) > 0.01f) animator.SetBool("ismoving", true);
+        else animator.SetBool("ismoving", false);
 
         if( moveinput > 0f)
         gameObject.transform.localScale = new Vector3(1,1,1);
